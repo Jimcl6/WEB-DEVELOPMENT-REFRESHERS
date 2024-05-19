@@ -10,9 +10,7 @@ let guess = prompt("Enter your first guess! (Type 'q' to quit)");
 let attempts = 1;
 
 while (parseInt(guess) !== targetNum) {
-  if (guess === "q") {
-    break;
-  }
+  if (guess === "q") break;
   guess = parseInt(guess);
   attempts++;
 
@@ -24,6 +22,8 @@ while (parseInt(guess) !== targetNum) {
     attempts++;
   } else {
     guess = prompt("Invalid guess! Please enter a number or type 'q' to quit.");
+    attempts++;
+
     if (guess === "q") {
       break;
     }
@@ -33,5 +33,5 @@ while (parseInt(guess) !== targetNum) {
 if (guess === "q") {
   alert("Ok, YOU QUIT!");
 } else {
-  alert(`It's ${targetNum}! You got it! It took you ${attempts}.`);
+  alert(`It's ${targetNum}! You got it! It took you ${attempts} guesses!`);
 }
