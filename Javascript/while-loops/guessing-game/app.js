@@ -18,8 +18,10 @@ while (parseInt(guess) !== targetNum) {
 
   if (guess > targetNum) {
     guess = prompt("Too high guess again!");
+    attempts++;
   } else if (guess < targetNum) {
     guess = prompt("Too low guess again!");
+    attempts++;
   } else {
     guess = prompt("Invalid guess! Please enter a number or type 'q' to quit.");
     if (guess === "q") {
