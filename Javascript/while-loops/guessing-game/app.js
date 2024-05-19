@@ -1,37 +1,35 @@
-let intMaximum = parseInt(
-  prompt("Enter a maximum number: (number should not be higher than 10)")
-);
+let maximum = parseInt(prompt("Enter a maximum number!"));
 
-while (!intMaximum || intMaximum > 10) {
-  parseInt(prompt("Enter a valid number!"));
+while (!maximum) {
+  maximum = parseInt(prompt("Enter a valid number!"));
 }
 
-const targetNum = Math.floor(Math.random() * intMaximum) + 1;
-console.log(targetNum);
+const targetNum = Math.floor(Math.random() * 10) + 1;
 
-let userGuess = parseInt(prompt("Enter your guess here:"));
+let guess = prompt("Enter your first guess! (Type 'q' to quit)");
 let attempts = 1;
 
-while (pareInt(userGuess) !== targetNum) {
-  if (userGuess === 'q') : alert('You quitter!') break;
+while (parseInt(guess) !== targetNum) {
+  if (guess === "q") {
+    break;
+  }
+  guess = parseInt(guess);
   attempts++;
-  if (userGuess > targetNum) {
-    userGuess = parseInt(prompt("Too high guess again!"));
+
+  if (guess > targetNum) {
+    guess = prompt("Too high guess again!");
+  } else if (guess < targetNum) {
+    guess = prompt("Too low guess again!");
   } else {
-    userGuess = parseInt(prompt("Too low guess again!"));
+    guess = prompt("Invalid guess! Please enter a number or type 'q' to quit.");
+    if (guess === "q") {
+      break;
+    }
   }
 }
 
-if (attempts > 3) {
-  alert(
-    `It took you ${attempts} guesses, you guessed ${userGuess}. You guessed right. But, What a noob.`
-  );
-} else if (attempts <= 3 && attempts > 1) {
-  alert(
-    `It took you ${attempts} guesses. You guessed ${userGuess}. You guessed right!`
-  );
+if (guess === "q") {
+  alert("Ok, YOU QUIT!");
 } else {
-  alert(
-    `You guessed ${userGuess}. You got it! It took you ${attempts} guess. What a pro!`
-  );
+  alert(`It's ${targetNum}! You got it! It took you ${attempts}.`);
 }
